@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap");
+@import "tailwindcss";
+
+:root {
+  --bg: #070716;
+  --panel: rgba(16, 16, 48, 0.88);
+  --cyan: #00ffff;
+  --magenta: #ff00ff;
+  --green: #00ff88;
+  --yellow: #ffff00;
+  --text: #e6e6ff;
+  --text-dim: #8a8aa8;
+  --border: rgba(120, 140, 255, 0.22);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: radial-gradient(circle at 50% 20%, rgba(255, 0, 255, 0.12) 0%, rgba(0, 0, 0, 0) 55%),
+    radial-gradient(circle at 60% 10%, rgba(0, 255, 255, 0.10) 0%, rgba(0, 0, 0, 0) 55%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Share Tech Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "VT323", ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.32;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.18) 1px, transparent 1px, transparent 3px);
+}
+
+.crt-noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  opacity: 0.06;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 3px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 4px);
+  animation: noise-shift 0.8s steps(2) infinite;
+}
+
+@keyframes noise-shift {
+  0% { transform: translate3d(0, 0, 0); }
+  25% { transform: translate3d(-2px, 1px, 0); }
+  50% { transform: translate3d(1px, -1px, 0); }
+  75% { transform: translate3d(2px, 2px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: 0 0 26px rgba(0, 255, 255, 0.10), inset 0 0 30px rgba(0, 0, 0, 0.55);
+}
+
+.neon-cyan {
+  text-shadow: 0 0 10px var(--cyan), 0 0 26px rgba(0, 255, 255, 0.45);
+}
+
+.neon-magenta {
+  text-shadow: 0 0 10px var(--magenta), 0 0 26px rgba(255, 0, 255, 0.45);
+}
+
+.btn {
+  border: 1px solid rgba(0, 255, 255, 0.55);
+  color: var(--cyan);
+  font-family: "VT323", ui-monospace, monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 10px 14px;
+  transition: all 120ms ease;
+}
+
+.btn:hover {
+  background: rgba(0, 255, 255, 0.10);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.22);
+}
+
+.kbd {
+  border: 1px solid rgba(120, 140, 255, 0.25);
+  padding: 2px 6px;
+  font-size: 12px;
+  color: var(--text-dim);
+}

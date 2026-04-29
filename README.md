@@ -1,4 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Retro Chess AI
+
+Retro Chess AI is a synthwave/retro chess web app (Next.js) where you play against an AI.
+
+![Preview](public/preview.png)
+
+## Features
+
+- Click-to-move chessboard (legal moves via `chess.js`)
+- Synthwave UI (scanlines/noise/neon)
+- Readable retro pieces (SVG silhouettes)
+- AI:
+  - **Fallback AI** (always works, instant startup)
+  - Optional **Stockfish** attempt (WebWorker + WASM) via `TRY STOCKFISH`
+- Move list, undo, hint, promotion picker
+
+## Run locally
+
+```bash
+cd retro-chess-ai
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000` (or whatever port Next prints).
+
+## Controls
+
+- Left click: select/move
+- `ESC`: cancel selection
+- `R`: new game
+
+## AI / Engine notes
+
+The app defaults to **Fallback AI** so it’s playable on every browser immediately.
+If you want Stockfish, click `TRY STOCKFISH`. If your browser blocks Worker/WASM for any reason, the game still runs with the fallback engine.
+
+## Build
+
+```bash
+npm run build
+npm run start
+```
+
+## German README
+
+See `README.de.md`.
 
 ## Getting Started
 
